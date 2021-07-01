@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "150371409505",
+    "project_id": "dimatalogbook-78a90",
+    "storage_bucket": "dimatalogbook-78a90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150371409505:android:0dac01248174c65ed85420",
+        "android_client_info": {
+          "package_name": "com.example.dimata_logbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150371409505-j7usqn89u40jqc6stvh8sfbhol81t0s7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiVTT9IXDWeq9Kf8mESCEycYktcwo0L5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150371409505-j7usqn89u40jqc6stvh8sfbhol81t0s7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
