@@ -2,7 +2,6 @@ import 'package:dimata_logbook/admin/chatsAdmin/messageAdmin.dart';
 import 'package:dimata_logbook/admin/companyTickets.dart';
 import 'package:dimata_logbook/admin/homeAdmin.dart';
 import 'package:dimata_logbook/admin/profileAdmin/profileAdmin.dart';
-import 'package:dimata_logbook/admin/reports/reportPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -21,7 +20,6 @@ class _bottomNavigationAdminState extends State<bottomNavigationAdmin> {
     homeAdmin(),
     companyTicketAdminPage(),
     messageAdmin(),
-    reportPageAdmin(),
     profileAdmin()
   ];
 
@@ -45,10 +43,6 @@ class _bottomNavigationAdminState extends State<bottomNavigationAdmin> {
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.ellipses_bubble_fill, color: HexColor("#074F78")),
               title: Text('Messages', style: TextStyle(color: Colors.black)),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.chart_bar_alt_fill, color: HexColor("#074F78")),
-              title: Text('Reports', style: TextStyle(color: Colors.black)),
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.person_alt, color: HexColor("#074F78")),

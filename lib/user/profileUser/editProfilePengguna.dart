@@ -21,18 +21,16 @@ class editProfilePengguna extends StatefulWidget {
 class _editProfilePenggunaState extends State<editProfilePengguna> {
   TextEditingController controllerFullName;
   TextEditingController controllerEmail;
-  TextEditingController controllerPhoneNumber;
+  TextEditingController controllerPassword;
   bool Loading = false;
-  var apiURL = "http://192.168.18.10:8080/api/user";
+  var apiURL = "http://192.168.43.149:8080/api/user";
+  var employeeId = "0";
   @override
   void initState() {
     super.initState();
-    controllerFullName = new TextEditingController
-      (text: profilePengguna.fullName);
-    controllerEmail = new TextEditingController
-      (text: profilePengguna.userEmail);
-    controllerPhoneNumber = new TextEditingController
-      (text: profilePengguna.phoneNumber);
+    controllerFullName = new TextEditingController(text: profilePengguna.fullName);
+    controllerEmail = new TextEditingController(text: profilePengguna.userEmail);
+    controllerPassword = new TextEditingController(text: loginPage.userPassword);
   }
 
   @override
@@ -98,22 +96,27 @@ class _editProfilePenggunaState extends State<editProfilePengguna> {
                   ),
                 )
               ),
-              new Container(
-                alignment: Alignment.topLeft,
-                child: Text("Phone Number", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-                margin: EdgeInsets.only(top: 20, left: 30)
-              ),
-              new Container(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 38, vertical: 8),
-                  child: TextFormField(
-                    controller: controllerPhoneNumber,
-                    decoration: InputDecoration(
-                      border: UnderlineInputBorder(),
-                      hintText: profilePengguna.phoneNumber
+              Positioned(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                        alignment: Alignment.topLeft,
+                        child: Text("Password", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+                        margin: EdgeInsets.only(top: 20, left: 30)
                     ),
-                  ),
+                    Container(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 38, vertical: 8),
+                        child: TextField(
+                          controller: controllerPassword,
+                          decoration: InputDecoration(
+                              hintText: "Password"
+                          ),
+                          obscureText: true,
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
               new Container(
@@ -121,9 +124,9 @@ class _editProfilePenggunaState extends State<editProfilePengguna> {
                 child: RaisedButton(
                   color: HexColor("#074F78"),
                   onPressed: (){
-                    if(controllerFullName.text == '' || controllerEmail.text == '' || controllerPhoneNumber.text == '') {
+                    if(controllerFullName.text == '' || controllerEmail.text == '' || controllerPassword.text == '') {
                       Fluttertoast.showToast(
-                        msg: "Both full name, email or phone number field can't be empty! Please try again",
+                        msg: "Both full name, email or password field can't be empty! Please try again",
                         fontSize: 14,
                         toastLength: Toast.LENGTH_SHORT,
                         gravity: ToastGravity.CENTER
@@ -131,14 +134,13 @@ class _editProfilePenggunaState extends State<editProfilePengguna> {
                     } else {
                       setState(() => Loading = true);
                       var body = jsonEncode({
-                        'userId' : loginPage.userId,
-                        'loginId' : controllerPhoneNumber.text,
-                        'fullName' : controllerFullName.text,
-                        'userType' : 1,
-                        'employeeId' : 123,
-                        'description' : 'test',
-                        'password' : loginPage.userPassword,
-                        'email' : controllerEmail.text
+                        "userId" : loginPage.userId,
+                        "loginId" : profilePengguna.phoneNumber,
+                        "fullName" : controllerFullName.text,
+                        "email" : controllerEmail.text,
+                        "password" : controllerPassword.text,
+                        "employeeId" : employeeId,
+                        "companyId" : loginPage.companyId
                       });
                       http.put(Uri.parse(apiURL),
                         headers: {"Content-Type" : "application/json"},
@@ -148,12 +150,7 @@ class _editProfilePenggunaState extends State<editProfilePengguna> {
                         if(data == 200) {
                           setState(() {
                             Loading = false;
-                            Navigator.push(
-                                context,
-                                PageTransition(
-                                  child: bottomNavigation(),
-                                  type: PageTransitionType.topToBottom
-                                )
+                            Navigator.push(context, PageTransition(child: bottomNavigation(), type: PageTransitionType.topToBottom)
                             );
                           });
                         }

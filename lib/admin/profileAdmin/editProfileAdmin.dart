@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dimata_logbook/admin/bottomNavigation.dart';
-import 'package:dimata_logbook/admin/homeAdmin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -22,16 +21,17 @@ class editProfileAdmin extends StatefulWidget {
 class _editProfileAdminState extends State<editProfileAdmin> {
   TextEditingController controllerFullName;
   TextEditingController controllerEmail;
-  TextEditingController controllerPhoneNumber;
+  TextEditingController controllerPassword;
   bool Loading = false;
-  var apiURL = "http://192.168.18.10:8080/api/user";
+  var employeeId = "1";
+  var apiURL = "http://192.168.43.149:8080/api/user";
 
   @override
   void initState() {
     super.initState();
     controllerFullName = new TextEditingController(text: profileAdmin.fullName);
     controllerEmail = new TextEditingController(text: profileAdmin.adminEmail);
-    controllerPhoneNumber = new TextEditingController(text: profileAdmin.phoneNumber);
+    controllerPassword = new TextEditingController(text: loginPage.userPassword);
   }
 
   @override
@@ -96,22 +96,27 @@ class _editProfileAdminState extends State<editProfileAdmin> {
                 ),
               ),
             ),
-            Container(
-                alignment: Alignment.topLeft,
-                child: Text("Phone Number", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-                margin: EdgeInsets.only(top: 20, left: 30)
-            ),
-            Container(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 38, vertical: 8),
-                child: TextFormField(
-                  controller: controllerPhoneNumber,
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
-                    hintText: profileAdmin.phoneNumber
+            Positioned(
+              child: Column(
+                children: <Widget>[
+                  Container(
+                      alignment: Alignment.topLeft,
+                      child: Text("Password", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+                      margin: EdgeInsets.only(top: 20, left: 30)
                   ),
-                ),
+                  Container(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 38, vertical: 8),
+                      child: TextField(
+                        controller: controllerPassword,
+                        decoration: InputDecoration(
+                            hintText: "Password"
+                        ),
+                        obscureText: true,
+                      ),
+                    ),
+                  )
+                ],
               ),
             ),
             Container(
@@ -119,7 +124,7 @@ class _editProfileAdminState extends State<editProfileAdmin> {
               child: RaisedButton(
                 color: HexColor("#074F78"),
                 onPressed: (){
-                  if(controllerFullName.text == '' || controllerEmail.text == '' || controllerPhoneNumber == '') {
+                  if(controllerFullName.text == '' || controllerEmail.text == '' || controllerPassword.text == '') {
                     Fluttertoast.showToast(
                       msg: "Both full name, email or phone number field can't be empty! Please try again",
                       fontSize: 14,
@@ -129,14 +134,13 @@ class _editProfileAdminState extends State<editProfileAdmin> {
                   } else {
                     setState(() => Loading = true);
                     var body = jsonEncode({
-                      'userId' : loginPage.userId,
-                      'loginId' : controllerPhoneNumber.text,
-                      'fullName' : controllerFullName.text,
-                      'userType' : 1,
-                      'employeeId' : 1,
-                      'description' : 'test',
-                      'password' : loginPage.userPassword,
-                      'email' : controllerEmail.text
+                      "userId" : loginPage.userId,
+                      "loginId" : profileAdmin.phoneNumber,
+                      "fullName" : controllerFullName.text,
+                      "email" : controllerEmail.text,
+                      "password" : controllerPassword.text,
+                      "employeeId" : employeeId,
+                      "companyId" : loginPage.companyId
                     });
                     http.put(Uri.parse(apiURL),
                       headers: {"Content-Type" : "application/json"},

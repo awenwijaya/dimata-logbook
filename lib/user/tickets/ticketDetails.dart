@@ -29,8 +29,8 @@ class ticketDetailPage extends StatefulWidget {
 }
 
 class _ticketDetailPageState extends State<ticketDetailPage> {
-  var apiURLPengguna = "http://192.168.18.10:8080/api/user/findByUserId";
-  var apiURLDeleteTickets = "http://192.168.18.10:8080/api/log-report/delete";
+  var apiURLPengguna = "http://192.168.43.149:8080/api/user/findByUserId";
+  var apiURLDeleteTickets = "http://192.168.43.149:8080/api/log-report/delete";
   bool Loading = false;
 
   getReportedByUserName() async {

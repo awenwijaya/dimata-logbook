@@ -1,4 +1,5 @@
 import 'package:dimata_logbook/admin/bottomNavigation.dart';
+import 'package:dimata_logbook/admin/homeAdmin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -25,7 +26,7 @@ class _sendTicketBerhasilAdminPageState extends State<sendTicketBerhasilAdminPag
   }
 
   void navigator() {
-    Navigator.push(context, PageTransition(child: bottomNavigationAdmin(), type: PageTransitionType.topToBottom));
+    Navigator.push(context, PageTransition(child: homeAdmin(), type: PageTransitionType.topToBottom));
   }
   @override
   Widget build(BuildContext context) {

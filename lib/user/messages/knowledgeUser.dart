@@ -17,7 +17,7 @@ class knowledgePenggunaPage extends StatefulWidget {
 }
 
 class _knowledgePenggunaPageState extends State<knowledgePenggunaPage> {
-  var apiURLListKnowledge = "http://192.168.18.10:8080/api/dashboard/status-report/my-tiket/knowledge";
+  var apiURLListKnowledge = "http://192.168.43.149:8080/api/dashboard/status-report/my-tiket/knowledge";
 
   Future<Tickets> functionListKnowledge() async {
     var body = jsonEncode({

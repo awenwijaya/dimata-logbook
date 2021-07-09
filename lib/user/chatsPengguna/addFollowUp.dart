@@ -24,7 +24,7 @@ class _addFollowUpPageState extends State<addFollowUpPage> {
   String holderStatusValue = '';
   var statusId;
   bool Loading = false;
-  var apiURLAddFollowUp = "http://192.168.18.10:8080/api/log-follow-up/add";
+  var apiURLAddFollowUp = "http://192.168.43.149:8080/api/log-follow-up/add";
 
   List<String> statusValueList = [
     'In Progress',

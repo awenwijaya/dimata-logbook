@@ -15,7 +15,7 @@ class notificationPage extends StatefulWidget {
 }
 
 class _notificationPageState extends State<notificationPage> {
-  var apiURLNotifications = "http://192.168.18.10:8080/api/log-notification/get";
+  var apiURLNotifications = "http://192.168.43.149:8080/api/log-notification/get";
 
   Future<Notifications> functionListNotification() async {
     var body = jsonEncode({

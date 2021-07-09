@@ -28,7 +28,7 @@ class _sendTicketBerhasilPageState extends State<sendTicketBerhasilPage> {
   }
 
   void navigator() {
-    Navigator.push(context, PageTransition(child: homePengguna(), type: PageTransitionType.topToBottom));
+    Navigator.push(context, PageTransition(child: bottomNavigation(), type: PageTransitionType.topToBottom));
   }
 
   @override

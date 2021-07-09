@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dimata_logbook/admin/bottomNavigation.dart';
 import 'package:dimata_logbook/loginRegistrasi.dart';
+import 'package:dimata_logbook/superAdmin/bottomNavigation.dart';
 import 'package:dimata_logbook/user/bottomNavigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +66,8 @@ class _splashScreenState extends State<splashScreen> {
           return Timer(duration, navigatorUserHomePage);
         } else if(loginPage.userType == 1) {
           return Timer(duration, navigatorAdminHomePage);
+        } else if(loginPage.userType == 2) {
+          return Timer(duration, navigatorSuperAdminHomePage);
         }
       } else {
         return Timer(duration, navigator);
@@ -79,6 +82,10 @@ class _splashScreenState extends State<splashScreen> {
 
   void navigatorAdminHomePage() {
     Navigator.push(context, PageTransition(child: bottomNavigationAdmin(), type: PageTransitionType.fade));
+  }
+
+  void navigatorSuperAdminHomePage() {
+    Navigator.push(context, PageTransition(child: bottomNavigationSuperAdmin(), type: PageTransitionType.fade));
   }
 
   void navigator() {
@@ -163,15 +170,33 @@ class MyApp extends StatelessWidget {
                     ),
                     new TextButton(
                         onPressed: (){
-                          Navigator.push(
-                              context,
-                              PageTransition(
-                                  child: registerPage(),
-                                  type: PageTransitionType.rightToLeftWithFade)
+                          showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('Dimata Logbook Account'),
+                                content: Container(
+                                  child: Column(
+                                    children: <Widget>[
+                                      Text("In order for you to get a Dimata Logbook account, you can contact your organization or contact the Dimata Team by calling the following number:"),
+                                      Text("Hotline: +6281 812 377 10011"),
+                                      Text("Phone: +62361 482431, 499029")
+                                    ],
+                                  ),
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    child: Text('OK'),
+                                    onPressed: (){Navigator.of(context).pop();},
+                                  )
+                                ],
+                              );
+                            }
                           );
                         },
                       child: Text(
-                        "Register",
+                        "Don't have an account?",
                         style: TextStyle(color: Colors.black),
                       ),
                     )

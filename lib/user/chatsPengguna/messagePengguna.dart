@@ -113,7 +113,9 @@ class _messagePenggunaState extends State<messagePengguna> {
             FloatingActionButton(
               child: Icon(CupertinoIcons.info),
               tooltip: "Informations",
-              onPressed: (){},
+              onPressed: (){
+                Navigator.push(context, PageTransition(child: infoPenggunaPage(), type: PageTransitionType.bottomToTop));
+              },
                 backgroundColor: HexColor("#074F78")
             ),
             SizedBox(

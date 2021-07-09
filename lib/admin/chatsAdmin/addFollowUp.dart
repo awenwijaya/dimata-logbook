@@ -1,8 +1,7 @@
 import 'dart:convert';
 
 import 'package:dimata_logbook/admin/bottomNavigation.dart';
-import 'package:dimata_logbook/admin/chatsAdmin/checkByUserId/checkByUserId.dart';
-import 'package:dimata_logbook/admin/chatsAdmin/followUpByUserId/followUpByUserId.dart';
+import 'package:dimata_logbook/loginRegistrasi.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -13,10 +12,6 @@ import 'package:page_transition/page_transition.dart';
 import 'package:dimata_logbook/admin/chatsAdmin/followUpDetail.dart';
 
 class addFollowUpAdminPage extends StatefulWidget {
-  static var flwUpByUserId;
-  static var flwUpByUser = 'No follow up by user currently selected';
-  static var chkByUser = 'No checked by user currently selected';
-  static var chkByUserId;
   const addFollowUpAdminPage({Key key}) : super(key: key);
 
   @override
@@ -29,7 +24,7 @@ class _addFollowUpAdminPageState extends State<addFollowUpAdminPage> {
   String holderStatusValue = '';
   var statusId;
   bool Loading = false;
-  var apiURLAddFollowUp = "http://192.168.18.10:8080/api/log-follow-up/add";
+  var apiURLAddFollowUp = "http://192.168.43.149:8080/api/log-follow-up/add";
 
   List<String> statusValueList= [
     'In Progress',
@@ -162,75 +157,9 @@ class _addFollowUpAdminPageState extends State<addFollowUpAdminPage> {
                 margin: EdgeInsets.only(top: 5),
               ),
               Container(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "Follow Up By *",
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      margin: EdgeInsets.only(top: 15, left: 20)
-                    ),
-                    Container(
-                      child: Text(
-                        addFollowUpAdminPage.flwUpByUser,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      margin: EdgeInsets.only(top: 10)
-                    ),
-                    Container(
-                      child: RaisedButton(
-                        onPressed: (){
-                          Navigator.of(context).push(PageTransition(child: followUpByUserIdPage(), type: PageTransitionType.bottomToTop));
-                        },
-                        child: Text("Select Follow Up User"),
-                      ),
-                      margin: EdgeInsets.only(top: 10)
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "Checked by User *",
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      margin: EdgeInsets.only(top: 15, left: 20),
-                    ),
-                    Container(
-                      child: Text(
-                        addFollowUpAdminPage.chkByUser,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      margin: EdgeInsets.only(top: 10)
-                    ),
-                    Container(
-                      child: RaisedButton(
-                        onPressed: (){
-                          Navigator.of(context).push(PageTransition(child: checkByUserIdPage(), type: PageTransitionType.bottomToTop));
-                        },
-                        child: Text("Select Check By User"),
-                      ),
-                      margin: EdgeInsets.only(top: 10)
-                    )
-                  ]
-                )
-              ),
-              Container(
                 child: RaisedButton(
                   onPressed: () async {
-                    if(controllerFollowUpNote.text == '' || addFollowUpAdminPage.flwUpByUserId == null || addFollowUpAdminPage.chkByUserId == null) {
+                    if(controllerFollowUpNote.text == '') {
                       Fluttertoast.showToast(
                           msg: "Follow up note fields are empty. Please fill the follow up note fields to continue",
                           toastLength: Toast.LENGTH_SHORT,
@@ -253,9 +182,9 @@ class _addFollowUpAdminPageState extends State<addFollowUpAdminPage> {
                       var body = jsonEncode({
                         "flwNote" : controllerFollowUpNote.text,
                         "logReportId": followUpDetailAdminPage.logReportId,
-                        "flwUpByUserId" : addFollowUpAdminPage.flwUpByUserId,
+                        "flwUpByUserId" : loginPage.userId,
                         "flwUpStatus" : statusId,
-                        "chkByUserId" : addFollowUpAdminPage.chkByUserId
+                        "chkByUserId" : loginPage.userId
                       });
                       http.post(Uri.parse(apiURLAddFollowUp),
                         headers: {"Content-Type" : "application/json"},

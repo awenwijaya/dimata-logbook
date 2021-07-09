@@ -21,7 +21,7 @@ class followUpDetailAdminPage extends StatefulWidget {
 }
 
 class _followUpDetailAdminPageState extends State<followUpDetailAdminPage> {
-  var apiURLFollowUp = "http://192.168.18.10:8080/api/log-follow-up/get";
+  var apiURLFollowUp = "http://192.168.43.149:8080/api/log-follow-up/get";
 
   Future<FollowUp> functionListFollowUp() async {
     var body = jsonEncode({

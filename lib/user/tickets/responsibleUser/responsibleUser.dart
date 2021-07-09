@@ -1,4 +1,3 @@
-import 'package:dimata_logbook/API/models/pengguna.dart';
 import 'package:dimata_logbook/API/models/picUser.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
