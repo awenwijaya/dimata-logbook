@@ -25,7 +25,7 @@ class _editUserPageState extends State<editUserPage> {
   TextEditingController controllerEmail;
   TextEditingController controllerPassword;
   var employeeId = "0";
-  var apiURL = "http://192.168.43.149:8080/api/user";
+  var apiURL = "http://192.168.18.10:8080/api/user";
 
   @override
   void initState() {

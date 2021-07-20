@@ -8,7 +8,7 @@ import 'models/chapter.dart';
 
 class GetAllTiketKategori {
   Future<List<KategoriTiket>> getKategoriTiket() async {
-    final url = "http://192.168.43.149:8080/api/log-report/report-all";
+    final url = "http://192.168.18.10:8080/api/log-report/report-all";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;
@@ -26,7 +26,7 @@ class GetAllTiketKategori {
 
 class GetAllUser {
   Future<List<Pengguna>> getPengguna() async {
-    final url = "http://192.168.43.149:8080/api/user";
+    final url = "http://192.168.18.10:8080/api/user";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;
@@ -43,7 +43,7 @@ class GetAllUser {
 
 class GetAllChapter {
   Future<List<Chapter>> getChapter() async {
-    final url = "http://192.168.43.149:8080/api/log-report/chapter";
+    final url = "http://192.168.18.10:8080/api/log-report/chapter";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;
@@ -59,7 +59,7 @@ class GetAllChapter {
 
 class GetAllDetailTiketBugs {
   Future<List<TiketDetail>> getDetailBugs() async {
-    final url = "http://192.168.43.149:8080/api/dashboard/status-report/bugs";
+    final url = "http://192.168.18.10:8080/api/dashboard/status-report/bugs";
     final req = await http.get(Uri.parse(url));
     if (req.statusCode == 200) {
       final body = req.body;
@@ -75,7 +75,7 @@ class GetAllDetailTiketBugs {
 
 class GetAllDetailTiketKnowledge {
   Future<List<TiketDetail>> getDetailKnowledge() async {
-    final url = "http://192.168.43.149:8080/api/dashboard/status-report/knowledge";
+    final url = "http://192.168.18.10:8080/api/dashboard/status-report/knowledge";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;
@@ -91,7 +91,7 @@ class GetAllDetailTiketKnowledge {
 
 class GetAllDetailTiketProblem {
   Future<List<TiketDetail>> getDetailProblem() async {
-    final url = "http://192.168.43.149:8080/api/dashboard/status-report/problem";
+    final url = "http://192.168.18.10:8080/api/dashboard/status-report/problem";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;
@@ -107,7 +107,7 @@ class GetAllDetailTiketProblem {
 
 class GetAllDetailTiketRequest {
   Future<List<TiketDetail>> getDetailRequest() async {
-    final url = "http://192.168.43.149:8080/api/dashboard/status-report/request";
+    final url = "http://192.168.18.10:8080/api/dashboard/status-report/request";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;
@@ -123,7 +123,7 @@ class GetAllDetailTiketRequest {
 
 class GetAllDetailTiketSupport {
   Future<List<TiketDetail>> getDetailSupport() async {
-    final url = "http://192.168.43.149:8080/api/dashboard/status-report/support";
+    final url = "http://192.168.18.10:8080/api/dashboard/status-report/support";
     final req = await http.get(Uri.parse(url));
     if (req.statusCode == 200) {
       final body = req.body;
@@ -139,7 +139,7 @@ class GetAllDetailTiketSupport {
 
 class GetAllPicUser {
   Future<PicUser> getPICUsers() async {
-    final url = "http://192.168.43.149:8080/api/log-report/get-pic";
+    final url = "http://192.168.18.10:8080/api/log-report/get-pic";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;
@@ -155,7 +155,7 @@ class GetAllPicUser {
 
 class GetAllAdmins {
   Future<PicUser> getAllAdmins() async {
-    final url = "http://192.168.43.149:8080/api/user/list-user-admin";
+    final url = "http://192.168.18.10:8080/api/user/list-user-admin";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;
@@ -171,7 +171,7 @@ class GetAllAdmins {
 
 class GetAllCompanies {
   Future<List<Company>> getAllCompanies() async {
-    final url = "http://192.168.43.149:8080/api/super-admin/company/findAll";
+    final url = "http://192.168.18.10:8080/api/super-admin/company/findAll";
     final req = await http.get(Uri.parse(url));
     if(req.statusCode == 200) {
       final body = req.body;

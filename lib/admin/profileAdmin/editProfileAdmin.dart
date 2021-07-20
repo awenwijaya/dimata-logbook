@@ -24,7 +24,7 @@ class _editProfileAdminState extends State<editProfileAdmin> {
   TextEditingController controllerPassword;
   bool Loading = false;
   var employeeId = "1";
-  var apiURL = "http://192.168.43.149:8080/api/user";
+  var apiURL = "http://192.168.18.10:8080/api/user";
 
   @override
   void initState() {
@@ -39,15 +39,7 @@ class _editProfileAdminState extends State<editProfileAdmin> {
     return Loading ? loading() : Scaffold(
       appBar: AppBar(
         backgroundColor: HexColor("#074F78"),
-          title: Row(
-            children: <Widget>[
-              IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: (){Navigator.pop(context);}
-              ),
-              Text("Edit Profile")
-            ],
-          )
+          title: Text("Edit Profile")
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -32,7 +32,7 @@ class addTicketPage extends StatefulWidget {
 class _addTicketPageState extends State<addTicketPage> {
   int reportByUserId = loginPage.userId;
   bool Loading = false;
-  var apiURL = "http://192.168.43.149:8080/api/log-report/add";
+  var apiURL = "http://192.168.18.10:8080/api/log-report/add";
   final controllerLogDescription = TextEditingController();
 
   @override

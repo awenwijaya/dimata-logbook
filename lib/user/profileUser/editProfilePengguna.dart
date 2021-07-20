@@ -23,7 +23,7 @@ class _editProfilePenggunaState extends State<editProfilePengguna> {
   TextEditingController controllerEmail;
   TextEditingController controllerPassword;
   bool Loading = false;
-  var apiURL = "http://192.168.43.149:8080/api/user";
+  var apiURL = "http://192.168.18.10:8080/api/user";
   var employeeId = "0";
   @override
   void initState() {

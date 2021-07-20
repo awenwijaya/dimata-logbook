@@ -17,7 +17,7 @@ class ideInisiatifSaranPage extends StatefulWidget {
 }
 
 class _ideInisiatifSaranPageState extends State<ideInisiatifSaranPage> {
-  var apiURLListIdeInisiatifSaran = "http://192.168.43.149:8080/api/dashboard/status-report/my-tiket/ide";
+  var apiURLListIdeInisiatifSaran = "http://192.168.18.10:8080/api/dashboard/status-report/my-tiket/ide";
 
   Future<Tickets> functionListIdeInisiatifSaran() async {
     var body = jsonEncode({

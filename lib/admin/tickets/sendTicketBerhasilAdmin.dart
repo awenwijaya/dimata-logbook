@@ -26,7 +26,7 @@ class _sendTicketBerhasilAdminPageState extends State<sendTicketBerhasilAdminPag
   }
 
   void navigator() {
-    Navigator.push(context, PageTransition(child: homeAdmin(), type: PageTransitionType.topToBottom));
+    Navigator.push(context, PageTransition(child: bottomNavigationAdmin(), type: PageTransitionType.topToBottom));
   }
   @override
   Widget build(BuildContext context) {

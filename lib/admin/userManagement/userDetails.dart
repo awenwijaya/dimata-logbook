@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dimata_logbook/admin/userManagement/editUser.dart';
 import 'package:dimata_logbook/admin/userManagement/userManagementAdmin.dart';
 import 'package:dimata_logbook/shared/loading.dart';
@@ -23,7 +25,7 @@ class userDetailPage extends StatefulWidget {
 
 class _userDetailPageState extends State<userDetailPage> {
   bool Loading = false;
-  var apiURLDelete = "http://192.168.43.149:8080/api/user/delete";
+  var apiURLDelete = "http://192.168.18.10:8080/api/user/delete";
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +122,26 @@ class _userDetailPageState extends State<userDetailPage> {
               ),
               Container(
                 child: RaisedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    setState(() {
+                      Loading = true;
+                    });
+                    var body = jsonEncode({
+                      "userId" : userDetailPage.userId
+                    });
+                    http.delete(Uri.parse(apiURLDelete),
+                        headers: {"Content-Type" : "application/json"},
+                        body: body
+                    ).then((http.Response response) {
+                      var responseValue = response.statusCode;
+                      if(responseValue == 200) {
+                        setState(() {
+                          Loading = false;
+                          Navigator.of(context).push(PageTransition(child: userManagementAdminPage(), type: PageTransitionType.topToBottom));
+                        });
+                      }
+                    });
+                  },
                   color: HexColor("#a81111"),
                   child: Container(
                     child: Row(

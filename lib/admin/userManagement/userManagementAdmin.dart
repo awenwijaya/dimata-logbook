@@ -20,7 +20,7 @@ class userManagementAdminPage extends StatefulWidget {
 }
 
 class _userManagementAdminPageState extends State<userManagementAdminPage> {
-  var apiURL = "http://192.168.43.149:8080/api/user/list-user";
+  var apiURL = "http://192.168.18.10:8080/api/user/list-user";
 
   Future<User> functionListUsers() async {
     var body = jsonEncode({

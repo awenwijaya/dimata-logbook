@@ -17,7 +17,7 @@ class problemsListChatPage extends StatefulWidget {
 }
 
 class _problemsListChatPageState extends State<problemsListChatPage> {
-  var apiURLListProblems = "http://192.168.43.149:8080/api/dashboard/status-report/my-tiket/problem";
+  var apiURLListProblems = "http://192.168.18.10:8080/api/dashboard/status-report/my-tiket/problem";
 
   Future<Tickets> functionListProblems() async {
     var body = jsonEncode({

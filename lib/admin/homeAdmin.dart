@@ -28,14 +28,14 @@ class _homeAdminState extends State<homeAdmin> {
   int jumlahRequest = 0;
   int jumlahSupport = 0;
   int jumlahBugs = 0;
-  var apiURLBugs = "http://192.168.43.149:8080/api/dashboard/count-status-my-tiket/bugs";
-  var apiURLSupport = "http://192.168.43.149:8080/api/dashboard/count-status-my-tiket/support";
-  var apiURLProblems = "http://192.168.43.149:8080/api/dashboard/count-status-my-tiket/problems";
-  var apiURLRequest = "http://192.168.43.149:8080/api/dashboard/count-status-my-tiket/request";
-  var apiURLDetailTiket = "http://192.168.43.149:8080/api/dashboard/detail/tiket";
-  var tiketListWaitingForSupport = "http://192.168.43.149:8080/api/dashboard/status/my-tiket/0";
-  var tiketListInProgress = "http://192.168.43.149:8080/api/dashboard/status/my-tiket/1";
-  var tiketListDone = "http://192.168.43.149:8080/api/dashboard/status/my-tiket/2";
+  var apiURLBugs = "http://192.168.18.10:8080/api/dashboard/count-status-my-tiket/bugs";
+  var apiURLSupport = "http://192.168.18.10:8080/api/dashboard/count-status-my-tiket/support";
+  var apiURLProblems = "http://192.168.18.10:8080/api/dashboard/count-status-my-tiket/problems";
+  var apiURLRequest = "http://192.168.18.10:8080/api/dashboard/count-status-my-tiket/request";
+  var apiURLDetailTiket = "http://192.168.18.10:8080/api/dashboard/detail/tiket";
+  var tiketListWaitingForSupport = "http://192.168.18.10:8080/api/dashboard/status/my-tiket/0";
+  var tiketListInProgress = "http://192.168.18.10:8080/api/dashboard/status/my-tiket/1";
+  var tiketListDone = "http://192.168.18.10:8080/api/dashboard/status/my-tiket/2";
 
   setBugs() {
     var body = jsonEncode({

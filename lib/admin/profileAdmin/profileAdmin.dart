@@ -21,7 +21,7 @@ class profileAdmin extends StatefulWidget {
 }
 
 class _profileAdminState extends State<profileAdmin> {
-  var apiURL = "http://192.168.43.149:8080/api/user/findByUserId";
+  var apiURL = "http://192.168.18.10:8080/api/user/findByUserId";
   var body = jsonEncode({
     'userId' : loginPage.userId
   });

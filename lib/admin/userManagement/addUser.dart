@@ -24,7 +24,7 @@ class _addUserPageState extends State<addUserPage> {
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
   bool Loading = false;
-  var apiURL = "http://192.168.43.149:8080/api/user/add";
+  var apiURL = "http://192.168.18.10:8080/api/user/add";
   var employeeId = "0";
 
   @override
@@ -224,7 +224,7 @@ class _addUserPageState extends State<addUserPage> {
                           if(response.statusCode == 200) {
                             setState(() {
                               Loading = false;
-                              Navigator.of(context).push(PageTransition(child: adminManagementPage(), type: PageTransitionType.topToBottom));
+                              Navigator.of(context).push(PageTransition(child: userManagementAdminPage(), type: PageTransitionType.topToBottom));
                             });
                           } else {
                             setState(() {

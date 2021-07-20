@@ -17,7 +17,7 @@ class requestListChatAdminPage extends StatefulWidget {
 }
 
 class _requestListChatAdminPageState extends State<requestListChatAdminPage> {
-  var apiURLListRequest = "http://192.168.43.149:8080/api/dashboard/status-report/my-tiket/request";
+  var apiURLListRequest = "http://192.168.18.10:8080/api/dashboard/status-report/my-tiket/request";
 
   Future<Tickets> functionListRequest() async {
     var body = jsonEncode({

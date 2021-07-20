@@ -17,7 +17,7 @@ class infoPenggunaPage extends StatefulWidget {
 }
 
 class _infoPenggunaPageState extends State<infoPenggunaPage> {
-  var apiURLListInfo = "http://192.168.43.149:8080/api/dashboard/status-report/my-tiket/info";
+  var apiURLListInfo = "http://192.168.18.10:8080/api/dashboard/status-report/my-tiket/info";
 
   Future<Tickets> functionListInfo() async {
     var body = jsonEncode({
